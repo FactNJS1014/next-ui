@@ -1,28 +1,54 @@
 "use client";
 
-import {Button, Card, CardHeader, CardBody, CardFooter, Accordion, AccordionItem} from "@heroui/react";
+import {Form, Input , Button, NumberInput,DatePicker} from "@heroui/react";
+import { FormEvent, useState } from "react";
 
 export default function App() {
-  const defaultContent = "The above command is for individual installation only. You may skip this step if @heroui/react is already installed globally."
+  const [form, setForm] = useState({
+    name: "",
+    age: 0,
+    birth: "" ,
+  })
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) =>{
+    e.preventDefault()
+    const formData = new FormData(e.currentTarget)
+
+    const data = {
+      name: formData.get("name")?.toString(),
+      age: formData.get("age"),
+      birth: formData.get("birth")?.toString()
+
+    }
+    setForm(data)
+  }
+
+  const resetForm = () =>{
+    setForm({ name: "", age: 0, birth: "" });
+  }
+  
   return (
-    <div className="">
-      <Button color="primary">Button</Button>
-       <Card>
-      <CardBody>
-        <p>Make beautiful websites regardless of your design experience.</p>
-      </CardBody>
-    </Card>
-     <Accordion>
-      <AccordionItem key="1" aria-label="Accordion 1" title="Accordion 1">
-        {defaultContent}
-      </AccordionItem>
-      <AccordionItem key="2" aria-label="Accordion 2" title="Accordion 2">
-        {defaultContent}
-      </AccordionItem>
-      <AccordionItem key="3" aria-label="Accordion 3" title="Accordion 3">
-        {defaultContent}
-      </AccordionItem>
-    </Accordion>
+    <div className="flex flex-col p-5 justify-center items-center space-y-5">
+      <Form className="w-100 space-y-3" onSubmit={handleSubmit}>
+        <Input placeholder="Name" type="text" name="name" />
+        <NumberInput placeholder="Age" name="age"  />
+        <DatePicker name="birth" />
+        
+        <div className="flex justify-center items-center gap-3">
+          <Button className="bg-success-400 text-white font-semibold " type="submit">Submit</Button>
+          <Button className="bg-blue-400 text-white font-semibold " type="button" onClick={resetForm}>Reset</Button>
+
+        </div>
+
+        
+
+      </Form>
+
+      <div className="mt-5">
+        <p className="font-semibold text-blue-500">My name is {form.name} .</p>
+        <p className="font-semibold text-blue-500">{form.age} years old.</p>
+        <p className="font-semibold text-blue-500">BirthDay is {form.birth} .</p>
+      </div>
     </div>
   );
 }
