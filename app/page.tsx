@@ -12,7 +12,8 @@ import {
 import { FormEvent, useState, useMemo } from "react";
 import { format } from "date-fns";
 import type { Selection } from "@heroui/react";
-
+import Icon from "@mdi/react";
+import { mdiContentSave } from "@mdi/js";
 // 1. กำหนด Type สำหรับโครงสร้างข้อมูล
 type FormDataState = {
   name: string;
@@ -82,7 +83,7 @@ export default function BasicForm() {
   };
 
   return (
-    <div className="flex flex-col md:flex-row p-8 gap-8 bg-gray-50 min-h-screen">
+    <div className="flex flex-col md:flex-row p-8 gap-8 bg-gray-50">
       {/* 📝 FORM AREA */}
       <div className="flex-1 max-w-md p-6 bg-white shadow-xl rounded-lg h-fit">
         <h2 className="text-2xl font-bold mb-6 text-blue-600">
@@ -133,6 +134,7 @@ export default function BasicForm() {
             className="w-full mt-6 bg-green-500 text-white font-semibold hover:bg-green-600"
             type="submit"
           >
+            <Icon path={mdiContentSave} size={1} />
             Submit Data
           </Button>
         </Form>
