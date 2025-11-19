@@ -23,9 +23,9 @@ export default function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="flex h-screen w-64 flex-col border-r border-border bg-sidebar fixed">
+    <aside className="flex h-screen w-64 flex-col shadow bg-sidebar fixed">
       {/* Sidebar Header */}
-      <div className="flex h-16 items-center border-b border-sidebar-border px-6">
+      <div className="flex h-16 items-center shadow px-6">
         <h1 className="text-lg font-semibold text-sidebar-foreground">
           My App
         </h1>
@@ -54,7 +54,7 @@ export default function Sidebar() {
       </nav>
 
       {/* Sidebar Footer */}
-      <div className="border-t border-sidebar-border p-4">
+      <div className="shadow p-4">
         <div className="flex items-center gap-3 rounded-lg px-3 py-2">
           <div className="flex h-8 w-8 items-center justify-center rounded-full bg-sidebar-primary text-sidebar-primary-foreground text-sm font-semibold">
             JD

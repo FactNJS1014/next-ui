@@ -9,7 +9,7 @@ import { mdiMenu, mdiClose } from "@mdi/js";
 const navItems = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
-  { href: "/services", label: "Services" },
+  { href: "/service", label: "Services" },
   { href: "/portfolio", label: "Portfolio" },
   { href: "/contact", label: "Contact" },
 ];
@@ -21,14 +21,12 @@ export function Navbar() {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 w-full  bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow">
+    <nav className="header-card">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground font-bold text-lg">
-              L
-            </div>
+            <div className="logo">L</div>
             <span className="text-xl font-bold text-foreground">Logo</span>
           </Link>
 
@@ -40,10 +38,8 @@ export function Navbar() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`relative px-4 py-2 text-sm font-medium transition-colors rounded-md ${
-                    isActive
-                      ? "text-white bg-primary"
-                      : "text-foreground hover:text-foreground hover:bg-primary-50"
+                  className={`nav-link ${
+                    isActive ? "menu-active" : "mennu-default"
                   }`}
                 >
                   {item.label}
@@ -71,7 +67,7 @@ export function Navbar() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden border-t border-border">
+          <div className="md:hidden inset-shadow-2xs">
             <div className="space-y-1 px-2 pb-3 pt-2">
               {navItems.map((item) => {
                 const isActive = pathname === item.href;
@@ -82,8 +78,8 @@ export function Navbar() {
                     onClick={() => setIsMenuOpen(false)}
                     className={`block px-3 py-2 text-base font-medium rounded-md transition-colors ${
                       isActive
-                        ? "text-foreground bg-accent"
-                        : "text-muted-foreground hover:text-foreground hover:bg-accent/50"
+                        ? "text-black bg-primary-300"
+                        : "text-muted-foreground hover:text-black hover:bg-primary-50"
                     }`}
                   >
                     {item.label}
