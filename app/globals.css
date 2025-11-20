@@ -1,27 +1,27 @@
 @import "tailwindcss";
-@plugin '../hero.ts';
 
+ @plugin '../hero.ts';
 /* Note: You may need to change the path to fit your project structure */
+ @source '../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
+ @custom-variant dark (&:is(.dark *));
 
-@source '../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
-@custom-variant dark (&:is(.dark *));
 
-.logo {
-   @apply flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground font-bold text-lg
-}
 
-.header-card {
-   @apply fixed top-0 left-0 right-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]: bg-background/60 shadow
-}
+ .logo{
+    @apply flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground font-bold text-lg
+ }
 
-.nav-link {
-   @apply relative px-4 py-2 text-sm font-medium transition-colors rounded-md
-}
+ .header-card{
+    @apply fixed top-0 left-0 right-0 z-50 w-full  bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow
+ }
+ .nav-link{
+    @apply relative px-4 py-2 text-sm font-medium transition-colors rounded-md
+ }
 
-.menu-active {
-   @apply text-white bg-primary
-}
+ .menu-active{
+    @apply text-white bg-primary
+ }
 
-.menu-default {
-   @apply text-foreground hover:text-foreground hover: bg-primary-50
-}
+ .menu-default{
+    @apply text-foreground hover:text-foreground hover:bg-primary-50
+ }
