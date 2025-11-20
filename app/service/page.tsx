@@ -1,9 +1,6 @@
 "use client";
+import ProductForm from "../components/productForm";
 
-export default function Services() {
-  return (
-    <div>
-      <h1>Services Page</h1>
-    </div>
-  );
+export default function HomePage() {
+  return <ProductForm />;
 }
